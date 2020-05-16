@@ -1,0 +1,25 @@
+{
+  "name": "footytrivia",
+  "version": "1.0.0",
+  "description": "The Ultimate Football Trivia Quiz",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/55abhilash/footytrivia.git"
+  },
+  "author": "55abhilash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/55abhilash/footytrivia/issues"
+  },
+  "homepage": "https://github.com/55abhilash/footytrivia#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
