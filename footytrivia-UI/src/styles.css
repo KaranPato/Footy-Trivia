@@ -78,12 +78,15 @@ body{
   input {
     content: url('https://www.pinclipart.com/picdir/big/152-1525446_copa-amrica-uefa-champions-league-logo-blue-clipart.png');
     color: white;
-    height: 16px;
-    width: 16px;
+    height: 17px;
+    width: 17px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
   }
   input:checked {
     content: url('https://www.pikpng.com/pngl/b/123-1233845_green-football-clip-art-at-clker-football-in.png');
+  }
+  input[type=radio]{
+    border: none;
   }

@@ -9,13 +9,15 @@
     <div class="row ">
         <div class="col-md-6">
             <div class="form-group form-check">
-                <input type="radio" class="form-check-inline" name="opt" id="opt1" (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt1)">
+                <input type="radio" class="form-check-inline" name="opt" id="opt1"
+                    (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt1)">
                 <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt1}}</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group form-check">
-                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <input type="radio" class="form-check-inline" name="opt" id="opt2"
+                    (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt2)">
                 <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt2}}</label>
             </div>
         </div>
@@ -24,13 +26,15 @@
     <div class="row ">
         <div class="col-md-6">
             <div class="form-group form-check">
-                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <input type="radio" class="form-check-inline" name="opt" id="opt3"
+                    (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt3)">
                 <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt3}}</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group form-check">
-                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <input type="radio" class="form-check-inline" name="opt" id="opt4"
+                    (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt4)">
                 <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt4}}</label>
             </div>
         </div>
@@ -39,5 +43,5 @@
 </section>
 
 <section class="section3" id="section3">
-    <button type="button" id="nextbutton" class="btn btn-warning" (click)="saveAnswer()">Next</button>
+    <button type="button" id="nextbutton" class="btn btn-outline-primary" (click)="saveAnswer()">Next</button>
 </section>

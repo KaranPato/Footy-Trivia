@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../../../common/services/questions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -15,7 +16,10 @@ export class QuestionsComponent implements OnInit {
     option: ''
   };
 
-  constructor(private questionsService: QuestionsService) { }
+  constructor(
+    private questionsService: QuestionsService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.username = sessionStorage.getItem('username');
@@ -23,13 +27,17 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.getQuestions().subscribe((response: any) => {
       if (response.length > 0) {
         this.questions = response;
-        this.getSingleQuestion(0);
+        this.getSingleQuestion();
       }
     })
   }
 
-  getSingleQuestion(index: number) {
-    this.singleQuestion = this.questions[index];
+  getSingleQuestion() {
+    if (this.questions.length > 0) {
+      this.singleQuestion = this.questions[0];
+    } else {
+      this.router.navigate(['/layout/thank-you']);
+    }
   }
 
   onSelect(event, id, option) {
@@ -45,6 +53,19 @@ export class QuestionsComponent implements OnInit {
     if (this.checkedItems.id && this.checkedItems.option != '') {
       this.questionsService.saveAnswer(this.checkedItems.id, this.checkedItems.option).subscribe((response: any) => {
         console.log(response);
+        if (response.length > 0) {
+          if (response[0] === 'true') {
+            // alert("AGUEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!");
+            const index = this.questions.findIndex(x => x.id === this.checkedItems.id);
+            this.questions.splice(index, 1);
+            this.getSingleQuestion();
+          } else {
+            // alert("So close, hit the post !!!!!!!!!!!!!");
+            const index = this.questions.findIndex(x => x.id === this.checkedItems.id);
+            this.questions.splice(index, 1);
+            this.getSingleQuestion();
+          }
+        }
       });
     }
   }
