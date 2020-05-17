@@ -20,7 +20,7 @@ app.get('/getQuestions', cors(), function(req, resp) {
     */
     var randomNos = [];
     while (randomNos.length != 10) {
-        var randomNo = Math.floor(Math.random() * Math.floor(20));
+        var randomNo = Math.floor(Math.random() * (19 - 1) + 1);
         if(!randomNos.includes(randomNo)) {
             randomNos.push(randomNo);
         }
@@ -35,6 +35,7 @@ app.get('/getQuestions', cors(), function(req, resp) {
             console.log(rows);
             resp.json(rows);
         });
+        conn.release();
     });
 });
 
@@ -46,19 +47,23 @@ app.get('/checkAnswer', cors(), function(req, resp) {
      */
     dbConnPool.getConnection(function(err, conn) {
         if(err) throw err;
-        var query = 'select id from questions where id = ' + req.query.id + ' and answer = "' + req.query.answer + '";';
+        var query = 'select id, answer from questions where id = ' + req.query.id + ';';
         var ques = conn.query(query, function(err, rows, fields) {
             if(err){
                 throw err;
             }
             console.log(rows);
-            if(rows.length != 0) {
-                resp.json('{id: true}');
+            var respArr = [];
+            if(rows[0].answer == req.query.answer) {
+                respArr.push('true');
             }
             else {
-                resp.json('{id: false}');
+                respArr.push('false');
             }
+            respArr.push(JSON.stringify(rows));
+            resp.json(respArr);
         });
+        conn.release();
     });
 });
 
