@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+  /* Container holding the image and the text */
+.container-customize {
+      /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  
+  /* Centered text */
+  .section1 {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+  /* Centered text */
+  .section2 {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+    /* Centered text */
+    .section3 {
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
+  .btn-kickoff{
+      margin-top: 5px;
+  }
+  .options{
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .question{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+  }
+
+  input {
+    content: url('https://www.pinclipart.com/picdir/big/152-1525446_copa-amrica-uefa-champions-league-logo-blue-clipart.png');
+    color: white;
+    height: 16px;
+    width: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  input:checked {
+    content: url('https://www.pikpng.com/pngl/b/123-1233845_green-football-clip-art-at-clker-football-in.png');
+  }

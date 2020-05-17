@@ -1,0 +1,43 @@
+<section class="section1">
+    <h1>Hey {{username}}, Let's get started</h1>
+</section>
+
+<section class="section2" id="section2">
+
+    <h2 class="alert alert-primary">{{singleQuestion?.question}}</h2>
+
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="form-group form-check">
+                <input type="radio" class="form-check-inline" name="opt" id="opt1" (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt1)">
+                <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt1}}</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-check">
+                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt2}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="form-group form-check">
+                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt3}}</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-check">
+                <input type="radio" class="form-check-inline" name="opt" id="opt1">
+                <label class="btn btn-outline-primary" for="exampleCheck1">{{singleQuestion?.opt4}}</label>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section3" id="section3">
+    <button type="button" id="nextbutton" class="btn btn-warning" (click)="saveAnswer()">Next</button>
+</section>
