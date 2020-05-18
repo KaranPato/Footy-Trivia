@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../../../common/services/questions.service';
 import { Router } from '@angular/router';
+import { Questions } from 'src/app/common/models/questions';
 
 @Component({
   selector: 'app-questions',
@@ -8,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
-  questions: any[] = [];
+  questions: Questions[] = [];
   username: string;
-  singleQuestion: string;
+  singleQuestion: Questions;
   checkedItems: {
     id: '',
     option: ''
@@ -24,7 +25,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.username = sessionStorage.getItem('username');
 
-    this.questionsService.getQuestions().subscribe((response: any) => {
+    this.questionsService.getQuestions().subscribe((response: Questions[]) => {
       if (response.length > 0) {
         this.questions = response;
         this.getSingleQuestion();
