@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
     sessionStorage.setItem('username', this.inputForm.controls.username.value);
 
-    this.router.navigate(['/layout']);
+    this.router.navigate(['/questions']);
 
   }
 

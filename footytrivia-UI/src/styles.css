@@ -2,30 +2,34 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body{
-    overflow-y: hidden; /* Hide vertical scrollbar */
-}
-
-  /* Container holding the image and the text */
-.container-customize {
-      /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+    /* Location of the image */
+  background-image: url('../src/assets/Images/Football-Stadium-background.jpg');
   
-  /* Full height */
-  height: 100%; 
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
   
-  /* Center and scale the image nicely */
-  background-position: center;
+  /* Background image doesn't tile */
   background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
   background-size: cover;
-  }
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
   
   /* Centered text */
   .section1 {
-    color: white;
-    font-weight: bold;
+    /* color: white; */
+    /* font-weight: bold; */
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -35,9 +39,9 @@ body{
   }
   /* Centered text */
   .section2 {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    color: white;
+    /* background-color: rgb(0,0,0);  */
+    /* background-color: rgba(0,0,0, 0.4);  */
+    /* color: white; */
     font-weight: bold;
     position: absolute;
     top: 60%;
@@ -49,19 +53,20 @@ body{
     text-align: center;
   }
 
-    /* Centered text */
-    .section3 {
-      color: white;
-      font-weight: bold;
-      position: absolute;
-      top: 85%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      width: 80%;
-      padding: 20px;
-      text-align: center;
-    }
+  /* Centered text */
+  .thank-you {
+    /* color: white; */
+    /* font-weight: bold; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
   .btn-kickoff{
       margin-top: 5px;
   }
@@ -90,3 +95,98 @@ body{
   input[type=radio]{
     border: none;
   }
+
+  .elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear forwards;
+    animation: fadeinout 2s linear forwards;
+}
+
+@keyframes fadeinout {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  75% { opacity: 2;}
+  100% {opacity: 3;}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+/* Centered text */
+.section1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.section1 h1 {
+  font-size: 1.5rem;
+}
+  /* For desktop: */
+  .section2 {
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .section2 h2{
+    font-size: 1.5rem;
+  }
+
+  .thank-you {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+/* Centered text */
+.section1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+  /* For desktop: */
+  .section2 {
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .thank-you {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+}
