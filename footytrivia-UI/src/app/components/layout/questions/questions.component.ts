@@ -44,6 +44,7 @@ export class QuestionsComponent implements OnInit {
   getSingleQuestion() {
     if (this.questions.length > 0) {
       this.singleQuestion = this.questions[0];
+      this.previousElement = null;
     } else {
       this.communicationService.sendCorrectAnswers(this.count);
       this.checkedItems = null;
@@ -54,7 +55,7 @@ export class QuestionsComponent implements OnInit {
   onSelect(questionId: any, option: any, elementId: any) {
     if (questionId > 0 && option != '') {
       if (this.previousElement) {
-        this.element.style.color = '#007BFF';
+        this.previousElement.style.color = '#007BFF';
         this.previousElement.style.backgroundColor = '';
       }
       this.element = document.getElementById(elementId);
