@@ -6,23 +6,27 @@
 
 <div class="row">
     <section class="jumbotron section2" id="section2">
-        <div [ngClass]="{'elementToFadeInAndOut': nextQues === true ? true: false
+        <div [ngClass]="{'elementToFadeInAndOut': isFade === true ? true: false
             }">
             <h2 class="alert alert-primary">{{singleQuestion?.question}}</h2>
 
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group form-check">
-                        <input type="radio" class="form-check-inline" name="opt" id="opt1"
-                            (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt1)">
-                        <label class="btn btn-outline-primary form-control" for="exampleCheck1">{{singleQuestion?.opt1}}</label>
+                        <button type="button" class="btn btn-outline-primary form-control" name="opt1"
+                            id="{{singleQuestion?.id}}opt1"
+                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt1, singleQuestion?.id + 'opt1')">
+                            {{singleQuestion?.opt1}}
+                        </button>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group form-check">
-                        <input type="radio" class="form-check-inline" name="opt" id="opt2"
-                            (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt2)">
-                        <label class="btn btn-outline-primary form-control" for="exampleCheck1">{{singleQuestion?.opt2}}</label>
+                        <button type="button" class="btn btn-outline-primary form-control" name="opt2"
+                            id="{{singleQuestion?.id}}opt2"
+                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt2, singleQuestion?.id + 'opt2')">
+                            {{singleQuestion?.opt2}}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -30,22 +34,29 @@
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group form-check">
-                        <input type="radio" class="form-check-inline" name="opt" id="opt3"
-                            (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt3)">
-                        <label class="btn btn-outline-primary form-control" for="exampleCheck1">{{singleQuestion?.opt3}}</label>
+                        <button type="button" class="btn btn-outline-primary form-control" name="opt3"
+                            id="{{singleQuestion?.id}}opt3"
+                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt3, singleQuestion?.id + 'opt3')">
+                            {{singleQuestion?.opt3}}
+                        </button>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group form-check">
-                        <input type="radio" class="form-check-inline" name="opt" id="opt4"
-                            (change)="onSelect($event, singleQuestion?.id, singleQuestion?.opt4)">
-                        <label class="btn btn-outline-primary form-control" for="exampleCheck1">{{singleQuestion?.opt4}}</label>
+                        <button type="button" class="btn btn-outline-primary form-control" name="opt2"
+                            id="{{singleQuestion?.id}}opt4"
+                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt4, singleQuestion?.id + 'opt4')">
+                            {{singleQuestion?.opt4}}
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <button class="btn btn-outline-primary" (click)="saveAnswer()">
+            <button *ngIf="!isChecked" class="btn btn-outline-primary ml-2" (click)="checkAnswer()">
                 <span>Shoot</span>
+            </button>
+            <button *ngIf="isChecked" class="btn btn-outline-primary ml-2" (click)="nextQues()">
+                <span>Towards Next Goal</span>
             </button>
         </div>
     </section>

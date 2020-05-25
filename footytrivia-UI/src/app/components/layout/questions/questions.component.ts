@@ -15,10 +15,14 @@ export class QuestionsComponent implements OnInit {
   singleQuestion: Questions;
   checkedItems: {
     id: '',
-    option: ''
+    option: '',
+    elementId: ''
   };
   count: number = 0;
-  nextQues = false;
+  isFade = false;
+  isChecked = false;
+  element: any;
+  previousElement: any;
 
   constructor(
     private questionsService: QuestionsService,
@@ -42,45 +46,78 @@ export class QuestionsComponent implements OnInit {
       this.singleQuestion = this.questions[0];
     } else {
       this.communicationService.sendCorrectAnswers(this.count);
+      this.checkedItems = null;
       this.router.navigate(['/thank-you']);
     }
   }
 
-  onSelect(event: any, id: any, option: any) {
-    if (event.target.checked) {
-      this.nextQues = false;
+  onSelect(questionId: any, option: any, elementId: any) {
+    if (questionId > 0 && option != '') {
+      if (this.previousElement) {
+        this.element.style.color = '#007BFF';
+        this.previousElement.style.backgroundColor = '';
+      }
+      this.element = document.getElementById(elementId);
+      if (this.element) {
+        this.previousElement = this.element;
+        this.element.style.color = 'white';
+        this.element.style.backgroundColor = 'skyblue';
+      }
+      this.isFade = false;
       this.checkedItems = {
-        id: id,
-        option: option
+        id: questionId,
+        option: option,
+        elementId: elementId
       }
     }
   }
 
-  saveAnswer() {
+  checkAnswer() {
     if (this.checkedItems) {
-      this.nextQues = true;
+      this.isFade = true;
       if (this.checkedItems.id && this.checkedItems.option != '') {
         this.questionsService.saveAnswer(this.checkedItems.id, this.checkedItems.option).subscribe((response: any) => {
           if (response.length > 0) {
             if (response[0] === 'true') {
-              // alert("AGUEROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!");
               this.count++;
-              const index = this.questions.findIndex(x => x.id === this.checkedItems.id);
-              this.questions.splice(index, 1);
-              this.getSingleQuestion();
-            } else {
-              // alert("So close, hit the post !!!!!!!!!!!!!");
-              const index = this.questions.findIndex(x => x.id === this.checkedItems.id);
-              this.questions.splice(index, 1);
-              this.getSingleQuestion();
             }
+            this.checkAnswerClass(response[0]);
           }
         });
       }
     } else {
-      alert('Choose one');
+      alert('Score at least one goal!!!');
       return;
     }
+  }
+
+  nextQues() {
+    this.isFade = true;
+    this.isChecked = false;
+    this.element.removeAttribute("style");
+    const index = this.questions.findIndex(x => x.id === this.checkedItems.id);
+    this.questions.splice(index, 1);
+    this.getSingleQuestion();
+  }
+
+  checkAnswerClass(status: string) {
+    this.element = document.getElementById(this.checkedItems.elementId);
+    if (this.element) {
+      this.element.style.backgroundColor = "";
+      this.element.style.color = "white";
+    }
+    this.isChecked = true;
+    if (status === 'true')
+      this.element.style.backgroundColor = "green";
+    else
+      this.element.style.backgroundColor = "red";
+  }
+
+  playAudio() {
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/alarm.wav";
+    audio.load();
+    audio.play();
   }
 
 }
