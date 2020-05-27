@@ -17,13 +17,13 @@ body{
   
   /* This is what makes the background image rescale based
      on the container's size */
-  background-size: cover;
+  /* background-size: cover; */
   
   /* Set a background color that will be displayed
      while the background image is loading */
   background-color: #464646;
 
-  /* background-size: 100% 100%; */
+  background-size: 100% 100%;
 }
   
   /* Centered text */
