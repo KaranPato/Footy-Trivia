@@ -55,7 +55,7 @@ export class QuestionsComponent implements OnInit {
   onSelect(questionId: any, option: any, elementId: any) {
     if (questionId > 0 && option != '') {
       if (this.previousElement) {
-        this.previousElement.style.color = '#007BFF';
+        this.previousElement.style.color = 'white';
         this.previousElement.style.backgroundColor = '';
       }
       this.element = document.getElementById(elementId);
@@ -111,7 +111,7 @@ export class QuestionsComponent implements OnInit {
     if (status === 'true')
       this.element.style.backgroundColor = "green";
     else
-      this.element.style.backgroundColor = "red";
+      this.element.style.backgroundColor = "#C72333";
   }
 
   playAudio() {

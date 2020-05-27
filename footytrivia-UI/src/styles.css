@@ -17,13 +17,13 @@ body{
   
   /* This is what makes the background image rescale based
      on the container's size */
-  /* background-size: cover; */
+  background-size: cover;
   
   /* Set a background color that will be displayed
      while the background image is loading */
   background-color: #464646;
 
-  background-size: 100% 100%;
+  /* background-size: 100% 100%; */
 }
   
   /* Centered text */
@@ -45,7 +45,7 @@ body{
     color: white;
     font-weight: bold;
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -53,6 +53,10 @@ body{
     padding: 20px;
     text-align: center;
     opacity: 3;
+  }
+
+  .section2 h2{
+    overflow: auto;
   }
 
   .home {
@@ -128,7 +132,7 @@ body{
 /* Centered text */
 .section1 {
   position: absolute;
-  top: 9%;
+  top: 15;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -144,7 +148,7 @@ body{
   .section2 {
     font-weight: bold;
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -193,7 +197,7 @@ body{
 /* Centered text */
 .section1 {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -205,7 +209,7 @@ body{
   .section2 {
     font-weight: bold;
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;

@@ -1,6 +1,6 @@
 <div class="row">
     <section class="section1">
-        <h2 class="alert alert-success">Hey {{username}}, Let's get started</h2>
+        <h3 class="alert alert-success">Hey {{username}}, Let's get started</h3>
     </section>
 </div>
 
@@ -12,8 +12,8 @@
 
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group form-check">
-                        <button type="button" class="btn btn-outline-primary form-control" name="opt1"
+                    <div class="form-group">
+                        <button type="button" class="btn btn-dark form-control" name="opt1"
                             id="{{singleQuestion?.id}}opt1"
                             (click)="onSelect(singleQuestion?.id, singleQuestion?.opt1, singleQuestion?.id + 'opt1')">
                             {{singleQuestion?.opt1}}
@@ -21,8 +21,8 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group form-check">
-                        <button type="button" class="btn btn-outline-primary form-control" name="opt2"
+                    <div class="form-group">
+                        <button type="button" class="btn btn-dark form-control" name="opt2"
                             id="{{singleQuestion?.id}}opt2"
                             (click)="onSelect(singleQuestion?.id, singleQuestion?.opt2, singleQuestion?.id + 'opt2')">
                             {{singleQuestion?.opt2}}
@@ -33,8 +33,8 @@
 
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group form-check">
-                        <button type="button" class="btn btn-outline-primary form-control" name="opt3"
+                    <div class="form-group">
+                        <button type="button" class="btn btn-dark form-control" name="opt3"
                             id="{{singleQuestion?.id}}opt3"
                             (click)="onSelect(singleQuestion?.id, singleQuestion?.opt3, singleQuestion?.id + 'opt3')">
                             {{singleQuestion?.opt3}}
@@ -42,8 +42,8 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group form-check">
-                        <button type="button" class="btn btn-outline-primary form-control" name="opt2"
+                    <div class="form-group">
+                        <button type="button" class="btn btn-dark form-control" name="opt2"
                             id="{{singleQuestion?.id}}opt4"
                             (click)="onSelect(singleQuestion?.id, singleQuestion?.opt4, singleQuestion?.id + 'opt4')">
                             {{singleQuestion?.opt4}}
@@ -52,10 +52,10 @@
                 </div>
             </div>
 
-            <button *ngIf="!isChecked" class="btn btn-outline-primary ml-2" (click)="checkAnswer()">
+            <button *ngIf="!isChecked" class="btn btn-danger ml-2" (click)="checkAnswer()">
                 <span>Shoot</span>
             </button>
-            <button *ngIf="isChecked" class="btn btn-outline-primary ml-2" (click)="nextQues()">
+            <button *ngIf="isChecked" class="btn btn-danger ml-2" (click)="nextQues()">
                 <span>Towards Next Goal</span>
             </button>
         </div>
