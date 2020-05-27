@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'footytrivia-UI';
+
+  throw(){
+    throw new Error('Co tu się wyprawia')
+  }
 }

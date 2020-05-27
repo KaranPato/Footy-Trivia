@@ -1,11 +1,11 @@
 <div class="row">
     <section class="section1">
-        <h1>Hey {{username}}, Let's get started</h1>
+        <h2 class="alert alert-success">Hey {{username}}, Let's get started</h2>
     </section>
 </div>
 
 <div class="row">
-    <section class="jumbotron section2" id="section2">
+    <section class=" section2" id="section2">
         <div [ngClass]="{'elementToFadeInAndOut': isFade === true ? true: false
             }">
             <h2 class="alert alert-primary">{{singleQuestion?.question}}</h2>

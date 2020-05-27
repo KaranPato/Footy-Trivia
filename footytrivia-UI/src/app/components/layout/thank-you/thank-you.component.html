@@ -1,4 +1,4 @@
-<section class="jumbotron thank-you">
+<section class="thank-you">
 
     <h3>Hey {{username}}, Good game Mate!</h3>
 
@@ -7,16 +7,16 @@
     <section class="results">
         <section class="statistics">
             <h3>Stats</h3>
-	    <p *ngIf="correctAnswers" class="alert alert-success">You scored {{correctAnswers}} and conceded {{ 10 - correctAnswers }} goals!</p>
-            <!-- <span>You scored {{ correctAnswersCount }} out of {{ totalQuestions }} questions correctly.</span>
-                <span>You completed the quiz in {{ elapsedMinutes }} minutes and {{ elapsedSeconds }} seconds.</span> -->
+            <p *ngIf="correctAnswers" class="alert alert-success">You scored {{correctAnswers}} and conceded
+                {{ 10 - correctAnswers }} goals!</p>
         </section>
     </section>
 
-    <section class="return">
-        <button type="button" class="btn btn-outline-danger" [routerLink]="['/questions']">Restart the
+    <section>
+        <button type="button" class="btn btn-danger form-control" [routerLink]="['/questions']">Restart the
             Match</button>
-        <button type="button" class="btn btn-outline-primary ml-2" [routerLink]="['/home']">Back to Line Ups</button>
+        <button type="button" class="btn btn-primary form-control mt-2" [routerLink]="['/home']">Back to Line
+            Ups</button>
     </section>
 
     <hr />
@@ -25,16 +25,15 @@
         <h4>Challenge your friends!</h4>
         <div class="social-buttons">
             <a href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored quiz. Try to beat me">
-		    <i class="fa fa-envelope fa-lg"></i>
-	    </a>
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
             <a class="ml-2" target="_blank"
                 href="https://www.twitter.com/intent/tweet?text=I scored 6/10 on this awesome quiz. Try to beat me. &url=http://172.105.56.24&">
-		    <i class="fa fa-twitter fa-lg"></i>
-	    </a>
-            <a class="ml-2" target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=172.105.56.240">
-		    <i class="fa fa-facebook fa-lg"></i>
-	    </a>
+                <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <a class="ml-2" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=172.105.56.240">
+                <i class="fa fa-facebook fa-lg"></i>
+            </a>
         </div>
     </section>
 

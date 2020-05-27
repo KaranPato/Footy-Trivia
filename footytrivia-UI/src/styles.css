@@ -22,6 +22,8 @@ body{
   /* Set a background color that will be displayed
      while the background image is loading */
   background-color: #464646;
+
+  /* background-size: 100% 100%; */
 }
   
   /* Centered text */
@@ -39,9 +41,23 @@ body{
   }
   /* Centered text */
   .section2 {
-    /* background-color: rgb(0,0,0);  */
-    /* background-color: rgba(0,0,0, 0.4);  */
-    /* color: white; */
+    background-color: rgba(0,0,0, 0.4); 
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    opacity: 3;
+  }
+
+  .home {
+    background-color: rgba(0,0,0, 0.4); 
+    color: white;
     font-weight: bold;
     position: absolute;
     top: 60%;
@@ -56,8 +72,8 @@ body{
 
   /* Centered text */
   .thank-you {
-    /* color: white; */
-    /* font-weight: bold; */
+    background-color: rgba(0,0,0, 0.4); 
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -121,14 +137,14 @@ body{
   text-align: center;
 }
 
-.section1 h1 {
+.section1 h2 {
   font-size: 1.5rem;
 }
-  /* For desktop: */
+  /* For Mobile: */
   .section2 {
     font-weight: bold;
     position: absolute;
-    top: 64%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -136,6 +152,21 @@ body{
     padding: 20px;
     text-align: center;
   }
+
+    /* For Mobile: */
+    .home {
+      background-color: rgba(0,0,0, 0.4); 
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
 
   .section2 h2{
     font-size: 1.5rem;
@@ -150,6 +181,10 @@ body{
     width: 80%;
     padding: 20px;
     text-align: center;
+  }
+
+  .return button{
+    margin-top: 2px;
   }
 }
 
@@ -166,7 +201,7 @@ body{
   padding: 20px;
   text-align: center;
 }
-  /* For desktop: */
+  /* For Mobile: */
   .section2 {
     font-weight: bold;
     position: absolute;
