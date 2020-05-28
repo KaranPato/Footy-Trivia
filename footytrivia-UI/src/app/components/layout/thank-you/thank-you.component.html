@@ -1,40 +1,54 @@
-<section class="thank-you">
+<section class="main">
+    <div class="layer container">
+        <div class="content-w3ls">
+            <div class="text-center">
+                <h3 class="alert alert-success">Hey {{username}}, Good game Mate!</h3>
+            </div>
+            <div class="content-bottom">
+                <div class="wthree-field">
+                    <section class="stats">
+                        <h2>Stats</h2>
+                        <p *ngIf="correctAnswers" class="alert alert-success">You scored {{correctAnswers}} and
+                            conceded
+                            {{ 10 - correctAnswers }} goals!</p>
+                    </section>
+                </div>
 
-    <h3>Hey {{username}}, Good game Mate!</h3>
+                <hr>
 
-    <!-- <h2>Footy Trivia Quiz</h2>-->
+                <div>
+                    <section>
+                        <button type="button" class="btn btn-danger form-control" [routerLink]="['/questions']">Restart
+                            the
+                            Match</button>
+                        <button type="button" class="btn btn-primary form-control mt-2" [routerLink]="['/home']">Back to
+                            Line
+                            Ups</button>
+                    </section>
+                </div>
 
-    <section class="results">
-        <section class="statistics">
-            <h3>Stats</h3>
-            <p *ngIf="correctAnswers" class="alert alert-success">You scored {{correctAnswers}} and conceded
-                {{ 10 - correctAnswers }} goals!</p>
-        </section>
-    </section>
+                <hr>
 
-    <section>
-        <button type="button" class="btn btn-danger form-control" [routerLink]="['/questions']">Restart the
-            Match</button>
-        <button type="button" class="btn btn-primary form-control mt-2" [routerLink]="['/home']">Back to Line
-            Ups</button>
-    </section>
+                <section class="challenge-social">
+                    <h4>Challenge your friends!</h4>
 
-    <hr />
+                    <hr>
 
-    <section class="challenge-social">
-        <h4>Challenge your friends!</h4>
-        <div class="social-buttons">
-            <a href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored quiz. Try to beat me">
-                <i class="fa fa-envelope fa-lg"></i>
-            </a>
-            <a class="ml-2" target="_blank"
-                href="https://www.twitter.com/intent/tweet?text=I scored 6/10 on this awesome quiz. Try to beat me. &url=http://172.105.56.24&">
-                <i class="fa fa-twitter fa-lg"></i>
-            </a>
-            <a class="ml-2" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=172.105.56.240">
-                <i class="fa fa-facebook fa-lg"></i>
-            </a>
+                    <div class="social-buttons">
+                        <a href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored quiz. Try to beat me">
+                            <i class="fa fa-envelope fa-lg"></i>
+                        </a>
+                        <a class="ml-2" target="_blank"
+                            href="https://www.twitter.com/intent/tweet?text=I scored 6/10 on this awesome quiz. Try to beat me. &url=http://172.105.56.24&">
+                            <i class="fa fa-twitter fa-lg"></i>
+                        </a>
+                        <a class="ml-2" target="_blank"
+                            href="https://www.facebook.com/sharer/sharer.php?u=172.105.56.240">
+                            <i class="fa fa-facebook fa-lg"></i>
+                        </a>
+                    </div>
+                </section>
+            </div>
         </div>
-    </section>
-
+    </div>
 </section>

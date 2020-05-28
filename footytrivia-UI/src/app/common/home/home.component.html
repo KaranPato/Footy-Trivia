@@ -1,18 +1,20 @@
-<div class="row">
-    <section class="section1">
-        <h3 class="alert alert-success">Welcome to Footy Trivia !</h3>
-    </section>
-</div>
-
-<div class="row">
-    <section class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 home" id="home">
-        <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <input type="text" name="username" formControlName="username" id="username" class="form-control"
-                    placeholder="What do you call yourself in the football world?">
-
-                <button type="submit" class="btn btn-danger btn-kickoff">Kick Off</button>
+<section class="main">
+    <div class="layer  container">
+        <div class="content-w3ls">
+            <div class="text-center icon">
+                <h3 style="color: white;">Welcome to Footy Trivia</h3>
             </div>
-        </form>
-    </section>
-</div>
+            <div class="content-bottom">
+                <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+                    <div class="wthree-field">
+                        <input name="text1" id="text1" class="form-control" formControlName="username" type="text"
+                            value="" placeholder="Footy Trivia name">
+                    </div>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn">Kick Off</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

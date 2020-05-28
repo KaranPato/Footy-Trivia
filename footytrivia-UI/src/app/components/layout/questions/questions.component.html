@@ -1,63 +1,69 @@
-<div class="row">
-    <section class="section1">
-        <h3 class="alert alert-success">Hey {{username}}, Let's get started</h3>
-    </section>
-</div>
-
-<div class="row">
-    <section class=" section2" id="section2">
-        <div [ngClass]="{'elementToFadeInAndOut': isFade === true ? true: false
+<section class="main">
+    <div class="layer">
+        <div class="content-w3ls">
+            <div class="text-center">
+                <h3 class="alert alert-success">Hey {{username}}, Let's get started</h3>
+            </div>
+            <div [ngClass]="{'elementToFadeInAndOut': isFade === true ? true: false
             }">
-            <h2 class="alert alert-primary">{{singleQuestion?.question}}</h2>
-
-            <div class="row ">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-dark form-control" name="opt1"
-                            id="{{singleQuestion?.id}}opt1"
-                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt1, singleQuestion?.id + 'opt1')">
-                            {{singleQuestion?.opt1}}
-                        </button>
+                <div class="content-bottom">
+                    <div class="wthree-field">
+                        <h1 class="alert alert-primary">{{singleQuestion?.question}}</h1>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-dark form-control" name="opt2"
-                            id="{{singleQuestion?.id}}opt2"
-                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt2, singleQuestion?.id + 'opt2')">
-                            {{singleQuestion?.opt2}}
+
+
+                    <div class="row ">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark form-control" name="opt1"
+                                    id="{{singleQuestion?.id}}opt1"
+                                    (click)="onSelect(singleQuestion?.id, singleQuestion?.opt1, singleQuestion?.id + 'opt1')">
+                                    {{singleQuestion?.opt1}}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark form-control" name="opt2"
+                                    id="{{singleQuestion?.id}}opt2"
+                                    (click)="onSelect(singleQuestion?.id, singleQuestion?.opt2, singleQuestion?.id + 'opt2')">
+                                    {{singleQuestion?.opt2}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark form-control" name="opt3"
+                                    id="{{singleQuestion?.id}}opt3"
+                                    (click)="onSelect(singleQuestion?.id, singleQuestion?.opt3, singleQuestion?.id + 'opt3')">
+                                    {{singleQuestion?.opt3}}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark form-control" name="opt2"
+                                    id="{{singleQuestion?.id}}opt4"
+                                    (click)="onSelect(singleQuestion?.id, singleQuestion?.opt4, singleQuestion?.id + 'opt4')">
+                                    {{singleQuestion?.opt4}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wthree-field">
+                        <button *ngIf="!isChecked" class="btn" (click)="checkAnswer()">
+                            <span>Shoot</span>
+                        </button>
+                        <button *ngIf="isChecked" class="btn" (click)="nextQues()">
+                            <span>Towards Next Goal</span>
                         </button>
                     </div>
                 </div>
             </div>
-
-            <div class="row ">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-dark form-control" name="opt3"
-                            id="{{singleQuestion?.id}}opt3"
-                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt3, singleQuestion?.id + 'opt3')">
-                            {{singleQuestion?.opt3}}
-                        </button>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-dark form-control" name="opt2"
-                            id="{{singleQuestion?.id}}opt4"
-                            (click)="onSelect(singleQuestion?.id, singleQuestion?.opt4, singleQuestion?.id + 'opt4')">
-                            {{singleQuestion?.opt4}}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <button *ngIf="!isChecked" class="btn btn-danger ml-2" (click)="checkAnswer()">
-                <span>Shoot</span>
-            </button>
-            <button *ngIf="isChecked" class="btn btn-danger ml-2" (click)="nextQues()">
-                <span>Towards Next Goal</span>
-            </button>
         </div>
-    </section>
-</div>
+    </div>
+</section>
