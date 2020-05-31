@@ -10,6 +10,8 @@ var dbConnPool = mysql.createPool({
     database: 'footytrivia_db'
 });
 
+
+
 app.get('/getQuestions', cors(), function(req, resp) {
     /* 
     1) Get array of 10 Random Questions
@@ -31,7 +33,7 @@ app.get('/getQuestions', cors(), function(req, resp) {
         var query = 'select id, question, opt1, opt2, opt3, opt4 from questions where id in (' + randomNos + ');';
         var ques = conn.query(query, function(err, rows, fields) {
             if(err)
-                throw err;
+                resp.json({"err": err.message});
             console.log(rows);
             resp.json(rows);
         });
@@ -50,7 +52,7 @@ app.get('/checkAnswer', cors(), function(req, resp) {
         var query = 'select id, answer from questions where id = ' + req.query.id + ';';
         var ques = conn.query(query, function(err, rows, fields) {
             if(err){
-                throw err;
+                resp.json({"err": err.message});
             }
             console.log(rows);
             var respArr = [];
@@ -62,6 +64,20 @@ app.get('/checkAnswer', cors(), function(req, resp) {
             }
             respArr.push(JSON.stringify(rows));
             resp.json(respArr);
+        });
+        conn.release();
+    });
+});
+
+app.post('/saveScore', cors(), function(req, resp) {
+    dbConnPool.getConnection(function(err, conn) {
+        if(err) 
+            resp.json({"err": err.message});
+        var query = 'insert into score(user_id, score) values(?, ?);';
+        var ques = conn.query(query, [req.query.user_id, req.query.score],function(err, rows, fields) {
+            if(err)
+                resp.json({"err": err.message});
+            resp.json({"status": "OK"});
         });
         conn.release();
     });
