@@ -11,7 +11,7 @@ var dbConnPool = mysql.createPool({
     database: 'footytrivia_db'
 });
 
-app.get('/login', cors(), function(req, resp) {
+app.post('/login', cors(), function(req, resp) {
     dbConnPool.getConnection(function(err, conn) {
         if(err)
             return resp.json({status: 500, err: err.message});
@@ -72,7 +72,7 @@ app.get('/login', cors(), function(req, resp) {
     });
 });
 
-app.get('/register', cors(), function(req, resp) {
+app.post('/register', cors(), function(req, resp) {
     dbConnPool.getConnection(function(err, conn) {
         if(err)
             return resp.json({status: 500, err: err.message});
