@@ -31,7 +31,7 @@ app.post('/login', cors(), function(req, resp) {
                          where u.email_id = ?";
                     //  and \
                         //   u.password = ?";
-        var ques = conn.query(query, [req.query.email_id],function(err, rows, fields) {
+        var ques = conn.query(query, [req.body.email_id],function(err, rows, fields) {
             if(err) {
                 resp.json({status: 500, err: err.message});
             }
@@ -40,7 +40,7 @@ app.post('/login', cors(), function(req, resp) {
                 // i.e., already registered user
                 // Either by google, or by normal
                 // So, now check password
-                    if(bcrypt.compareSync(req.query.password, rows[0]["password"])) {
+                    if(bcrypt.compareSync(req.body.password, rows[0]["password"])) {
                         // Correct password
                         delete rows[0]["password"];
                         resp.json({status: 200, response: rows});
@@ -49,19 +49,19 @@ app.post('/login', cors(), function(req, resp) {
                         resp.json({status: 500, err: "Incorrect Username/Password"});
                     }
                 }
-                else if(rows.length == 0 && req.query.provider != null) {
+                else if(rows.length == 0 && req.body.provider != null) {
                     // i.e., non registered user, logging in via google
                     // So this is his first login, register him
-                    var query2 = 'insert into user(username, email_id, password) values(?, ?, ?);';
-                    var ques = conn.query(query2, [req.query.username, req.query.email_id, bcrypt.hashSync(req.query.password, 10)],function(err, rows2, fields) {
+                    var query2 = 'insert into user(username, email_id, provider) values(?, ?, ?);';
+                    var ques = conn.query(query2, [req.body.username, req.body.email_id, req.body.provider],function(err, rows2, fields) {
                         if(err) {
                             resp.json({status: 500, err: err.message});
                         }
                         else {
                             resp.json({status: 200, response: {
                                                             user_id: rows2.insertId,
-                                                            username: req.query.username,
-                                                            email_id: req.query.email_id,
+                                                            username: req.body.username,
+                                                            email_id: req.body.email_id,
                                                             creation_time: Date.now()}});
                         }
                     });
@@ -77,9 +77,9 @@ app.post('/register', cors(), function(req, resp) {
         if(err)
             return resp.json({status: 500, err: err.message});
         var query = 'insert into user(username, email_id, password) values(?, ?, ?);';
-        var ques = conn.query(query, [req.query.username, 
-                                      req.query.email_id,
-                                      bcrypt.hashSync(req.query.password, 10)],function(err, rows, fields) {
+        var ques = conn.query(query, [req.body.username, 
+                                      req.body.email_id,
+                                      bcrypt.hashSync(req.body.password, 10)],function(err, rows, fields) {
             if(err) {
                 resp.json({status: 500, err: err.message});
             }
