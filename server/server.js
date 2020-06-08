@@ -3,6 +3,9 @@ var app = express();
 var mysql = require('mysql');
 var cors = require('cors');
 var bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.raw());
 
 var dbConnPool = mysql.createPool({
     host: 'localhost',
@@ -31,7 +34,9 @@ app.post('/login', cors(), function(req, resp) {
                          where u.email_id = ?";
                     //  and \
                         //   u.password = ?";
-        var ques = conn.query(query, [req.body.email_id],function(err, rows, fields) {
+        console.log("DEBUG: req.body = ");
+	console.log(req.body);
+	  var ques = conn.query(query, [req.body.email_id],function(err, rows, fields) {
             if(err) {
                 resp.json({status: 500, err: err.message});
             }
