@@ -1,13 +1,11 @@
 #: tmp.c:4
 msgid "Sole Survivor!"
-msgstr ""
+msgstr "Sole Survivor!"
 
 #: tmp.c:5
-#, c-format
 msgid "BOC is my favorite band."
-msgstr ""
+msgstr "BOC is my favorite band."
 
 #: tmp.c:6
-#, c-format
 msgid "Second fav is CCR"
-msgstr ""
+msgstr "Second fav is CCR"
