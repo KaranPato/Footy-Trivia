@@ -28,5 +28,5 @@ msgstr ""
 
 #: tmp.c:6
 #, c-format
-msgid "Second fav is CCR"
+msgid "Second fav fav is CCR"
 msgstr ""

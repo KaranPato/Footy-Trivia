@@ -1,3 +1,5 @@
+"Language: en"
+
 #: tmp.c:4
 msgid "Sole Survivor!"
 msgstr "Sole Survivor!"
