@@ -3,27 +3,50 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './common/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { QuestionsComponent } from './components/layout/questions/questions.component';
-import { ThankYouComponent } from './components/layout/thank-you/thank-you.component';
+import { LoginComponent } from './common/components/login/login.component';
+
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
+
+const config = new AuthServiceConfig(
+  [
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('app -id')
+    },
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('967209745915-93ig5ppaqacctk7o46vvh4c56ltfdkqv.apps.googleusercontent.com')
+    }
+  ]
+);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    QuestionsComponent,
-    ThankYouComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

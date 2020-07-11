@@ -1,0 +1,141 @@
+<div class="container mt--8 pb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+            <div class="layer elementToFadeInAndOut">
+                <div class="card shadow border-0">
+                    <div class="card-header bg-transparent pb-5">
+                        <div class="text-muted text-center mt-2 mb-3">
+                            <small>Sign in with</small>
+                        </div>
+                        <div class="btn-wrapper text-center">
+                            <a class="social-icons github" (click)="socialSignIn('facebook')">
+                                <i class="fa fa-github"></i>
+                            </a>
+                            <a class="social-icons google" (click)="socialSignIn('google')">
+                                <!-- <img src="../../../assets/Images/Icons/icon-google.png" alt="Google"> -->
+                                <i class="fa fa-google"></i>
+                            </a>
+                            <a class="social-icons facebook" (click)="socialSignIn('facebook')">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="social-icons twitter" (click)="socialSignIn('twitter')">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div [ngSwitch]="currentBlock">
+                        <section *ngSwitchCase="'register'">
+                            <div class="card-body px-lg-5 py-lg-5">
+                                <div class="text-center text-muted mb-4"><small>Or Register</small></div>
+                                <form [formGroup]="registerForm" (ngSubmit)="register()"
+                                    class="ng-untouched ng-pristine ng-valid">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-envelope"> </i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control" placeholder="Email" type="email"
+                                                formControlName="email">
+                                        </div>
+                                        <div *ngIf="submittedR && r.email.errors" class="alert alert-danger">
+                                            <div *ngIf="r.email.errors.required">Email is required</div>
+                                            <div *ngIf="r.email.errors.email">Not a valid email format.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="fa fa-lock"></i></span></div><input class="form-control"
+                                                placeholder="Password" type="password" formControlName="password">
+                                        </div>
+                                        <div *ngIf="submittedR && r.password.errors" class="alert alert-danger">
+                                            <div *ngIf="r.password.errors.required">Password is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="fa fa-lock"></i></span></div><input class="form-control"
+                                                placeholder="Confirm Password" type="password"
+                                                formControlName="confirmPassword">
+                                        </div>
+                                        <div *ngIf="registerForm.hasError('notSame')" class="alert alert-danger mt-2">
+                                            Passwords do not match
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-primary my-4" type="submit">Sign Up</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <!-- <section *ngSwitchCase="forgoPassword">...</section> -->
+                        <section *ngSwitchDefault>
+                            <div class="card-body px-lg-5 py-lg-5">
+                                <div class="text-center text-muted mb-4"><small>Or sign in with
+                                        credentials</small></div>
+                                <form [formGroup]="loginForm" (ngSubmit)="login()"
+                                    class="ng-untouched ng-pristine ng-valid">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-envelope"> </i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control" placeholder="Email" type="email"
+                                                formControlName="email">
+                                        </div>
+                                        <div *ngIf="submitted && l.email.errors" class="alert alert-danger">
+                                            <div *ngIf="l.email.errors.required">Email is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="fa fa-lock"></i></span></div><input class="form-control"
+                                                placeholder="Password" type="password" formControlName="password">
+                                        </div>
+                                        <div *ngIf="submitted && l.password.errors" class="alert alert-danger">
+                                            <div *ngIf="l.password.errors.required">Password is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                                        <label class="custom-control-label" for=" customCheckLogin">
+                                            <span class="text-muted">Remember
+                                                me</span>
+                                        </label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-primary my-4" type="submit">Sign in</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="javascript:void(0)"><small>Forgot password?</small></a>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a (click)="createNewAccount()">
+                                    <div [ngSwitch]="currentBlock">
+                                        <small *ngSwitchCase="'register'">Already a user? 
+                                        <br>    Sign In
+                                        </small>
+                                        <small *ngSwitchDefault>Create a New Account</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

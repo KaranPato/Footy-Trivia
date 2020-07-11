@@ -1,5 +1,5 @@
 <section class="main">
-    <div class="layer container">
+    <div class="layer container elementToFadeInAndOut">
         <div class="content-w3ls">
             <div class="text-center">
                 <h3 class="alert alert-success">Hey {{username}}, Good game Mate!</h3>
@@ -18,10 +18,12 @@
 
                 <div>
                     <section>
-                        <button type="button" class="btn btn-danger form-control" [routerLink]="['/questions']">Restart
+                        <button type="button" class="btn btn-danger form-control"
+                            [routerLink]="['/layout/questions']">Restart
                             the
                             Match</button>
-                        <button type="button" class="btn btn-primary form-control mt-2" [routerLink]="['/home']">Back to
+                        <button type="button" class="btn btn-primary form-control mt-2"
+                            [routerLink]="['/layout/line-ups']">Back to
                             Line
                             Ups</button>
                     </section>
@@ -34,17 +36,18 @@
 
                     <hr>
 
-                    <div class="social-buttons">
-                        <a href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored quiz. Try to beat me">
-                            <i class="fa fa-envelope fa-lg"></i>
+                    <div class="btn-wrapper">
+                        <a class="social-icons"
+                            href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored quiz. Try to beat me">
+                            <i class="fa fa-envelope"></i>
                         </a>
-                        <a class="ml-2" target="_blank"
+                        <a class="social-icons" target="_blank"
                             href="https://www.twitter.com/intent/tweet?text=I scored 6/10 on this awesome quiz. Try to beat me. &url=http://172.105.56.24&">
-                            <i class="fa fa-twitter fa-lg"></i>
+                            <i class="fa fa-twitter"></i>
                         </a>
-                        <a class="ml-2" target="_blank"
+                        <a class="social-icons" target="_blank"
                             href="https://www.facebook.com/sharer/sharer.php?u=172.105.56.240">
-                            <i class="fa fa-facebook fa-lg"></i>
+                            <i class="fa fa-facebook"></i>
                         </a>
                     </div>
                 </section>

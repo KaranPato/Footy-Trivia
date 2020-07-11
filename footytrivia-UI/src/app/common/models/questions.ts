@@ -6,3 +6,8 @@ export class Questions {
     opt3: string;
     opt4: string;
 }
+
+export class QuestionsResponse{
+    status: number;
+    response: Questions[];
+}

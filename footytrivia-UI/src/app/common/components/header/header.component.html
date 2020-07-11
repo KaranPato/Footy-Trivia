@@ -1,0 +1,39 @@
+<section class="main">
+    <div class="layer elementToFadeInAndOut">
+        <div class="bottom-grid">
+            <div class="logo">
+                <h1> <a [routerLink]="['/layout/main']">
+                        <!-- <span class="fa fa-key"></span> -->
+                        Footy Trivia</a></h1>
+            </div>
+            <div class="links">
+                <ul class="links-unordered-list">
+                    <li class="active">
+                        <a [routerLink]="['/login']" class="">Login</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">About Us</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">Register</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="http://placehold.it/30x30" class="img-circle special-img">
+                            <!-- Profile -->
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                            <a class="dropdown-item" [routerLink]="['/layout/user-profile']">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,11 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-line-ups',
+  templateUrl: './line-ups.component.html',
+  styleUrls: ['./line-ups.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LineUpsComponent implements OnInit {
   inputForm: FormGroup;
 
   constructor(private router: Router) { }
@@ -15,16 +15,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.inputForm = new FormGroup({
       username: new FormControl('', Validators.required)
-   });
+    });
   }
 
   onSubmit() {
-    if (this.inputForm.invalid)
+    if (this.inputForm.invalid) {
       return;
+    }
 
     sessionStorage.setItem('username', this.inputForm.controls.username.value);
 
-    this.router.navigate(['/questions']);
+    this.router.navigate(['/layout/questions']);
 
   }
 

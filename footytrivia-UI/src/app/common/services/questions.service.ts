@@ -15,7 +15,7 @@ export class QuestionsService {
     return this.http.get(apiUrl + 'getQuestions');
   }
 
-  saveAnswer(id, option) {
+  saveAnswer(id: any, option: any) {
     return this.http.get(apiUrl + `checkAnswer/?id=${id}&answer=${option}`);
   }
 }
