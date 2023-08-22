@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
-  template: `<app-header></app-header>
+  template: `<div id="flex-container">
+  <app-header></app-header>
   <router-outlet></router-outlet>
-  <app-footer></app-footer>`
+  <div class="footer-section">
+  <app-footer></app-footer>
+  </div>
+  </div>`
 })
 export class LayoutComponent implements OnInit {
 
