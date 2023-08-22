@@ -1,39 +1,50 @@
-<section class="main">
-    <div class="layer elementToFadeInAndOut">
-        <div class="bottom-grid">
-            <div class="logo">
-                <h1> <a [routerLink]="['/layout/main']">
-                        <!-- <span class="fa fa-key"></span> -->
-                        Footy Trivia</a></h1>
-            </div>
-            <div class="links">
-                <ul class="links-unordered-list">
-                    <li class="active">
-                        <a [routerLink]="['/login']" class="">Login</a>
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg main-nav px-0">
+            <a class="navbar-brand" href="/layout">
+                <!-- <img src="http://rajeshdas.com/assets/images/logo.svg" alt="Footy Trivia"> -->
+                Footy Trivia
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu"
+                aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar icon-bar-1"></span>
+                <span class="icon-bar icon-bar-2"></span>
+                <span class="icon-bar icon-bar-3"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ml-auto text-uppercase f1">
+                    <li>
+                        <a href="#home" class="active active-first">home</a>
                     </li>
-                    <li class="">
-                        <a href="#" class="">About Us</a>
+                    <li>
+                        <a href="#about">about us</a>
                     </li>
-                    <li class="">
-                        <a href="#" class="">Register</a>
+                    <!-- <li>
+                        <a href="#service">services</a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#project">projects</a>
                     </li>
-                    <li class="">
-                        <a href="#" class="">Contact</a>
+                    <li>
+                        <a href="#team">team</a>
+                    </li>
+                    <li>
+                        <a href="#testimony">testimonils</a>
+                    </li> -->
+                    <li>
+                        <a href="#contact">contact</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <img src="http://placehold.it/30x30" class="img-circle special-img">
-                            <!-- Profile -->
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navDropDownLink">
-                            <a class="dropdown-item" [routerLink]="['/layout/user-profile']">Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Profile</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" routerLink="user-profile">Profile</a>
+                            <a class="dropdown-item" routerLink="/login">Login</a>
                         </div>
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </div>
-</section>
+    <!-- /.container -->
+</header>

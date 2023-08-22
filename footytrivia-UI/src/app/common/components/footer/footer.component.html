@@ -1,11 +1,48 @@
-<section class="main">
-    <div class="layer elementToFadeInAndOut">
-        <div class="bottom-grid1">
-            <div class="copyright">
-                <p>&copy; Copyright {{currentYear}}. All rights reserved |
-                    <a [routerLink]="['/layout/main']">Footy Trivia</a>
-                </p>
-            </div>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<section class="footer">
+  <div class="container">
+
+    <footer class="text-center text-white">
+
+
+      <!-- Copyright -->
+      <div class="row text-center" style="background-color:#21252994;">
+        <div class="col-md-6 copyright-footer">
+          © {{currentYear}} Copyright:&nbsp;
+          <a class="text-white" href="https://footy-trivia.com/"> Footy Trivia</a>
         </div>
-    </div>
+
+        <!-- Grid container -->
+        <div class="container-fluid col-md-6">
+          <!-- Section: Social media -->
+          <section>
+            <!-- Facebook -->
+            <a class="social-icons btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                class="fa fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a class="social-icons btn-outline-light btn-floating m-1" href="#!" role="button">
+              <i class="fa fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a class="social-icons btn-outline-light btn-floating m-1" href="#!" role="button">
+              <i class="fa fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a class="social-icons btn-outline-light btn-floating m-1" href="#!" role="button">
+              <i class="fa fa-instagram"></i></a>
+
+            <!-- Github -->
+            <a class="social-icons btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                class="fa fa-github"></i></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+  </div>
 </section>
+<!-- End of .container -->
